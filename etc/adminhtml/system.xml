@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+    	<tab id="emizentech" translate="label" sortOrder="100">
+            <label>Emizen Tech</label>
+        </tab>
+        <section id="customsmtp" translate="label" type="text" sortOrder="910" showInDefault="1" showInWebsite="1" showInStore="1">
+        	<label>Custom Smtp</label>
+            <tab>emizentech</tab>
+            <resource>Emizentech_CustomSmtp::emizentech</resource>
+            <group id="emizentechcustomsmtp" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Emizen Tech SMPT</label>
+                <field id="auth" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Authentication method</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Smtpauth</source_model>
+                    <comment>Use your SMTP Credentials.</comment>
+                </field>
+                <field id="ssl" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SSL type</label>
+                    <source_model>Emizentech\CustomSmtp\Model\Config\Source\Authtype</source_model>
+                    <comment>Use SSL Type (if applicable) .</comment>
+                </field>
+                <field id="port" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Port</label>
+                    <comment>Use Port for SMTP default 25 </comment>
+                </field>
+                <field id="smtphost" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SMTP Host</label>
+                    <comment>Use "smtp.yoursmtphost.com" without http</comment>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <comment>Email Address.</comment>
+                </field>
+                <field id="password" translate="label" type="password" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                </field>
+                <group id="debug" translate="label" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+                        <label>Try SMTP Configuration Settings</label>
+                        <attribute type="expanded">0</attribute>
+                        <frontend_model>Magento\Config\Block\System\Config\Form\Fieldset</frontend_model>
+                        <field id="email" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Email address</label>
+                            <comment>Email address to send test to.</comment>
+                            <source_model>Magento\Config\Model\Config\Source\Design\Robots</source_model>
+                        </field>
+                        <field id="button" translate="label comment" type="button" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label></label>
+                            <frontend_model>Emizentech\CustomSmtp\Block\Adminhtml\System\Config\TestButton</frontend_model>
+                        </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

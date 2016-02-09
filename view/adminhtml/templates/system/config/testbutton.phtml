@@ -1,0 +1,37 @@
+<?php
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+?>
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/alert'
+    ], function ($, alert) {
+        window.EmizentechCustomSmtpDebugTest = function(){
+            
+            $.ajax({
+                url: '<?php echo $block->getAdminUrl() ?>',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    form_key: FORM_KEY,
+                    auth: $('#customsmtp_emizentechcustomsmtp_auth').val(),
+                    ssl:$('#customsmtp_emizentechcustomsmtp_ssl').val(),
+                    smtphost:$('#customsmtp_emizentechcustomsmtp_smtphost').val(),
+                    username:$('#customsmtp_emizentechcustomsmtp_username').val(),
+                    password:$('#customsmtp_emizentechcustomsmtp_password').val(),
+                    email:$('#customsmtp_emizentechcustomsmtp_debug_email').val()
+
+                },
+                showLoader: true
+            }).done(function(data) {
+                alert({
+                    title:'Result',
+                    content:data
+                });
+            });
+        }
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

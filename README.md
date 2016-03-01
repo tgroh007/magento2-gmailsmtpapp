@@ -37,7 +37,7 @@ mkdir app/code/Emizentech/CustomSmtp
 
 
 
-<h3> Enable EmizenTech/CustomSmtp Module</h3>
+<h3> Enable Emizentech/CustomSmtp Module</h3>
 to Enable this module you need to follow these steps:
 
 <ul>

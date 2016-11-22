@@ -28,7 +28,7 @@ class Index extends \Magento\Backend\App\Action
     ) {
         $this->_resultPageFactory = $resultPageFactory;
         $this->_dataHelper = $dataHelper;
-        parent::__construct($context, $dataHelper);
+        parent::__construct($context);
         
     }
 
